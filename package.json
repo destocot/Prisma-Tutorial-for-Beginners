@@ -2,6 +2,7 @@
   "name": "prisma-tutorial-for-beginners",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node dist/index.js",
     "dev": "ts-node src/index.ts"
