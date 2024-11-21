@@ -6,36 +6,27 @@ async function main() {
   //   const users = await prisma.user.findMany();
   //   console.log(users);
   //
-  // Create a user
-  //   const newUser = await prisma.user.create({
-  //     data: {
-  //       email: "n.uzumaki@example.com",
-  //     },
-  //   });
-  //   console.log(newUser);
+  //   Find first user
+  //   const user1 = await prisma.user.findFirst();
+  //   console.log(user1);
   //
-  // Create a user with a name
-  //   const newUser2 = await prisma.user.create({
-  //     data: {
-  //       email: "s.uchiha@example.com",
-  //       name: "Sasuke Uchiha",
-  //     },
+  //   Find user by id
+  //   const uniqueUser1 = await prisma.user.findUnique({
+  //     where: { id: 2 },
   //   });
-  //   console.log(newUser2);
+  //   console.log(uniqueUser1);
   //
-  // Create many users
-  //   const manyNewUsers = await prisma.user.createMany({
-  //     data: [
-  //       {
-  //         email: "s.haruno@example.com",
-  //       },
-  //       {
-  //         email: "i.uchiha@example.com",
-  //         name: "Itachi Uchiha",
-  //       },
-  //     ],
+  //   Find user by email
+  //   const uniqueUser2 = await prisma.user.findUnique({
+  //     where: { email: "s.uchiha@example.com" },
   //   });
-  //   console.log(manyNewUsers);
+  //   console.log(uniqueUser2);
+  //
+  // Find first user with name ends with Uchiha
+  //   const user2 = await prisma.user.findFirst({
+  //     where: { name: { endsWith: "Uchiha" } },
+  //   });
+  //   console.log(user2);
 }
 
 main()
