@@ -7,6 +7,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// https://www.prisma.io/docs/orm/prisma-migrate/getting-started
+// npx prisma migrate dev --name=init
+// npx prisma migrate dev --name post_table_add_views_column
+
 model User {
   id Int @id @default(autoincrement())
 
@@ -17,10 +21,11 @@ model User {
 }
 
 model Post {
-  id        Int     @id @default(autoincrement())
-  title     String
-  content   String?
-  published Boolean @default(false)
+  id          Int     @id @default(autoincrement())
+  title       String
+  content     String?
+  isPublished Boolean @default(false)
+  views       Int     @default(0)
 
   userId Int
   user   User @relation(fields: [userId], references: [id])
