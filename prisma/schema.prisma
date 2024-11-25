@@ -7,9 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// https://www.prisma.io/docs/orm/prisma-migrate/getting-started
-// npx prisma migrate dev --name=init
-// npx prisma migrate dev --name post_table_add_views_column
+// https://www.prisma.io/docs/orm/prisma-migrate/workflows/seeding
 
 model User {
   id Int @id @default(autoincrement())

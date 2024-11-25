@@ -7,8 +7,12 @@
     "dev": "ts-node src/index.ts",
     "build": "tsc"
   },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+  },
   "license": "ISC",
   "devDependencies": {
+    "@faker-js/faker": "^9.2.0",
     "@types/node": "^22.9.1",
     "prisma": "^5.22.0",
     "ts-node": "^10.9.2",
