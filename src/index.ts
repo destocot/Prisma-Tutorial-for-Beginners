@@ -3,29 +3,78 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
-  // Select all fields
-  // const user1 = await prisma.user.findUnique({
-  //   where: { id: 10 },
+  // Create a new post for a user
+  // const newPost1 = await prisma.post.create({
+  //   data: {
+  //     title: "My first post",
+  //     userId: 1,
+  //   },
   // });
-  // console.log(user1);
-  //
-  // Select just id field
-  // const user2 = await prisma.user.findUnique({
-  //   where: { id: 10 },
-  //   select: { id: true },
+
+  // console.log(newPost1);
+
+  // Create another new post for a user
+  // const newPost2 = await prisma.post.create({
+  //   data: {
+  //     title: "My second post",
+  //     content: "This is the content of my second post",
+  //     userId: 1,
+  //     published: true,
+  //   },
   // });
-  // console.log(user2);
-  // Select just id and email fields
-  // const user3 = await prisma.user.findUnique({
-  //   where: { id: 10 },
-  //   select: { id: true, email: true },
+  // console.log(newPost2);
+
+  // Create another new post for a user
+  // const newPost3 = await prisma.post.create({
+  //   data: {
+  //     title: "My third post",
+  //     user: {
+  //       connect: {
+  //         id: 1,
+  //       },
+  //     },
+  //   },
   // });
-  // console.log(user3);
-  // Select just id and email fields for all users
-  const users = await prisma.user.findMany({
-    select: { id: true, email: true },
+  // console.log(newPost3);
+
+  // Find all posts for user with include
+  // const userWithPosts = await prisma.user.findUnique({
+  //   where: {
+  //     id: 1,
+  //   },
+  //   include: { posts: true },
+  // });
+  // console.log(userWithPosts);
+
+  // Find all posts for user with select
+  // const userWithPosts = await prisma.user.findUnique({
+  //   where: {
+  //     id: 1,
+  //   },
+  //   select: {
+  //     id: true,
+  //     email: true,
+  //     name: true,
+  //     posts: {
+  //       select: {
+  //         id: true,
+  //         title: true,
+  //         content: true,
+  //         published: true,
+  //       },
+  //     },
+  //   },
+  // });
+  // console.log(userWithPosts);
+
+  // Find all posts for a user
+  const postsByUser = await prisma.post.findMany({
+    where: {
+      userId: 1,
+    },
+    include: { user: true },
   });
-  console.log(users);
+  console.log(postsByUser);
 }
 
 main()
