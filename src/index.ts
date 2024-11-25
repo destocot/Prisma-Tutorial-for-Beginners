@@ -3,15 +3,29 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
-  // Delete a user
-  // const deletedUser = await prisma.user.delete({
-  //   where: { id: 4 },
+  // Select all fields
+  // const user1 = await prisma.user.findUnique({
+  //   where: { id: 10 },
   // });
-  // console.log(deletedUser);
+  // console.log(user1);
   //
-  // Delete many users
-  // const manyDeletedUsers = await prisma.user.deleteMany({});
-  // console.log(manyDeletedUsers);
+  // Select just id field
+  // const user2 = await prisma.user.findUnique({
+  //   where: { id: 10 },
+  //   select: { id: true },
+  // });
+  // console.log(user2);
+  // Select just id and email fields
+  // const user3 = await prisma.user.findUnique({
+  //   where: { id: 10 },
+  //   select: { id: true, email: true },
+  // });
+  // console.log(user3);
+  // Select just id and email fields for all users
+  const users = await prisma.user.findMany({
+    select: { id: true, email: true },
+  });
+  console.log(users);
 }
 
 main()
